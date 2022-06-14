@@ -1,0 +1,23 @@
+<script type='text/javascript'>
+
+$(document).ready(function () {
+
+var tags = $('h3');
+
+tags.wrap('<a href="#"></a>');
+
+
+tags.click(function(){
+	var rows = $(this).parents(".bloc-grey").children("[class='row'],hr[class='plugin']");
+	
+	rows.each(function()
+	{
+		if($(this).is(':visible')) $(this).hide();
+		else $(this).show();
+		
+	});
+});
+
+});
+				
+</script>

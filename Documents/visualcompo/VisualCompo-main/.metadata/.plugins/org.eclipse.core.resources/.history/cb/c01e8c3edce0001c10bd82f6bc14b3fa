@@ -1,0 +1,68 @@
+package dimo.test_api.servlets;
+
+import java.text.Normalizer;
+import java.util.List;
+
+import com.yellowbox.plugin.v3.ParamValues;
+import com.yellowbox.plugin.v3.Servlet;
+import com.yellowbox.ws.beans.ImportRecord;
+import com.yellowbox.ws.beans.Record;
+import com.yellowbox.ws.beans.Value;
+
+import dimo.test_api.composants.Composant_Pipe;
+
+import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+public class QRCodeServletDisplayImage extends Servlet 
+{
+	Composant_Pipe compoPipe;
+
+	String idCurrentFiche;
+    Record currentRecord;
+	List<Value> valuesCurrentFiche;
+	int sizeValuesCurrentFiche;
+
+	String idQrCodeImgHtmlField;
+	
+	@Override
+	public String call(ParamValues paramsServlet) 
+	{
+		String varReturn = "";
+
+		compoPipe = (Composant_Pipe) getComponent();
+		
+		String typeOperation = paramsServlet.getStringValue("typeOperation");
+
+		if(typeOperation.equals("QRCode_checkIfExist"))
+		{
+			Value valueQrCodeImgHtml = currentRecord.getValues().stream()
+					                   .filter(x -> x.getField().getId().equals(idQrCodeImgHtmlField))
+					                   .findFirst().orElse(null); 
+			
+			if(valueQrCodeImgHtml != null)
+			{
+				String valeurQrCodeHtml = valueQrCodeImgHtml.getValue();
+				if(!valeurQrCodeHtml.isEmpty())
+				{
+					return valeurQrCodeHtml;
+				}
+			}
+		}
+		else
+		{
+			varReturn = "typeOperation ne repond a aucune condition";
+		}
+
+		return varReturn;
+	}
+	
+	@Override
+	public String getName() {
+		return "QRCodeServletDisplayImage";
+	}
+}
+

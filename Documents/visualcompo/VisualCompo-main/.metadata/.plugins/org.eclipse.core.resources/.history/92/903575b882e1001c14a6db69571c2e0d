@@ -1,0 +1,92 @@
+package dimo.visual_compo.servlets;
+
+import java.text.Normalizer;
+import java.util.List;
+import java.util.Map;
+
+import com.yellowbox.plugin.v3.ParamValues;
+import com.yellowbox.plugin.v3.Servlet;
+import com.yellowbox.ws.beans.Field;
+import com.yellowbox.ws.beans.Keyword;
+import com.yellowbox.ws.beans.Record;
+import com.yellowbox.ws.beans.Value;
+
+import dimo.visual_compo.RecordUtils;
+import dimo.visual_compo.composants.ComposantPipe;
+
+public class ServletComposantPipe extends Servlet 
+{
+	ComposantPipe componentPipe;
+
+	String idCurrentFiche;
+    Record currentRecord;
+	List<Value> valuesCurrentFiche;
+	int sizeValuesCurrentFiche;
+
+	String idQrCodeImgHtmlField;
+	
+	@Override
+	public String call(ParamValues paramsServlet) 
+	{
+		String varReturn = "";
+
+		componentPipe = (ComposantPipe) getComponent();
+		
+		String typeOperation = paramsServlet.getStringValue("typeOperation");
+
+		if(typeOperation.equals("Pipe_checkData"))
+		{
+			Map<String, Value> mapPipe = RecordUtils.getMapFields(componentPipe.record);
+			Value valueTarget = RecordUtils.getFieldValue(mapPipe, componentPipe.yb_visual.fields.target);
+			
+			if(valueTarget != null)
+			{
+				String infoTarget = valueTarget.getValue();
+				if(infoTarget == null || infoTarget.isEmpty())
+				{
+					infoTarget = "Pipe_dataEmpty";
+				}
+				else
+				{
+					List<Keyword> keywordsTaget = componentPipe.getYellowboxEntryPoint().getServices().getKeywordService()
+					.getKeywordListByKeywordListId(componentPipe.yb_visual.values.keywordsTarget);
+
+					StringBuilder bld = new StringBuilder();
+
+					for(Keyword key : keywordsTaget)
+					{
+						if(key.getName().equals(infoTarget))
+						{
+							bld.append("§§" + key.getName() + "|");		
+						}
+						else
+						{
+							bld.append(key.getName() + "|");							
+						}
+
+					}
+
+					infoTarget += bld.toString(); 
+					
+					if(!infoTarget.isEmpty())
+					{
+						infoTarget = infoTarget.substring(0, infoTarget.length()-1);
+					}
+				}
+				return infoTarget;
+			}
+		}
+		else
+		{
+			varReturn = "typeOperation ne repond a aucune condition";
+		}
+
+		return varReturn;
+	}
+	
+	@Override
+	public String getName() {
+		return "ServletComposantPipe";
+	}
+}
+

@@ -1,0 +1,7 @@
+1654067841141	Rename type 'PipeYB'
+1654067850400	Rename field 'yb_pipe'
+1654067903895	Rename resource 'BaseTemplate_DisplayPipe.html'
+1654067936026	Rename resource 'Controller_DisplayPipe'
+1654067975171	Rename resource 'PipeStyle.css'
+1654068025426	Rename resource 'ComposantPipeStyle.css'
+1654068110438	Rename package 'dimo.test_api'

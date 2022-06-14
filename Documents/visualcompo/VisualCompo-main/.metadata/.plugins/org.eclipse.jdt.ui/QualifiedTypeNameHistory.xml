@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="dimo.test_api.yellowbox.table.YBTest"/>
+    <fullyQualifiedTypeName name="dimo.test_api.yellowbox.table.YBInterface"/>
+    <fullyQualifiedTypeName name="com.yellowbox.ws.beans.Record"/>
+    <fullyQualifiedTypeName name="dimo.test_api.yellowbox.table.API"/>
+    <fullyQualifiedTypeName name="com.sun.javafx.collections.MappingChange.Map"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="com.yellowbox.plugin.v3.Param.Type"/>
+    <fullyQualifiedTypeName name="com.yellowbox.plugin.v3.Param"/>
+    <fullyQualifiedTypeName name="com.yellowbox.plugin.v3.Param.InOut"/>
+    <fullyQualifiedTypeName name="dimo.test_api.BasePlugin"/>
+    <fullyQualifiedTypeName name="dimo.test_api.yellowbox.table.Test"/>
+    <fullyQualifiedTypeName name="dimo.test_api.yellowbox.table.TestYB"/>
+    <fullyQualifiedTypeName name="dimo.test_api.yellowbox.table.generic.YBGenericFields"/>
+    <fullyQualifiedTypeName name="dimo.test_api.yellowbox.table.Interface.Fields"/>
+    <fullyQualifiedTypeName name="dimo.test_api.yellowbox.table.generic.YBGenericValues"/>
+    <fullyQualifiedTypeName name="dimo.test_api.yellowbox.table.API.Values"/>
+    <fullyQualifiedTypeName name="dimo.test_api.yellowbox.table.Interface.Values"/>
+    <fullyQualifiedTypeName name="dimo.test_api.composants.ComposantPipe"/>
+    <fullyQualifiedTypeName name="dimo.test_api.RecordUtils"/>
+    <fullyQualifiedTypeName name="com.yellowbox.ws.beans.Field"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ResourceBundle"/>
+    <fullyQualifiedTypeName name="java.io.UnsupportedEncodingException"/>
+    <fullyQualifiedTypeName name="java.util.MissingResourceException"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.yellowbox.ws.beans.Keyword"/>
+    <fullyQualifiedTypeName name="com.yellowbox.ws.beans.Value"/>
+</qualifiedTypeNameHistroy>

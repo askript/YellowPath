@@ -1,0 +1,19 @@
+.card-header {
+  background-color: white;
+}
+.card-header h3 {
+  font-size: 20px ;
+  font-family : "Lato", "Helvetica Neue";
+  margin : 10px;
+  color: #272727;
+}
+.card,
+.card-header,
+.card-body {
+  border-radius: 0px;
+}
+
+.glyphicons
+{
+  font-size: 20px;
+}

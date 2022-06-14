@@ -1,0 +1,21 @@
+<script>
+  $('head').append('<link href="' + window.location.origin + contextpath + '/templates/assets/plugins/glyphicons/css/glyphicons.css" rel="stylesheet" type="text/css">');
+  $('head').append('<link href="' + window.location.origin + contextpath + '/templates/fonts/googlefonts_lato.css" rel="stylesheet" type="text/css">');	
+</script>
+
+<div class="card" style="width: 100%">
+  <div class="card-header clearfix">
+    <div style="display:inline-block">
+      <h3>Pipe - Affichage</h3>
+    </div>
+    
+    <div id="spinner" class="spinner-border float-right" role="status" style="display: none;">
+    </div>
+  </div>
+
+  <div class="card-body" id="AlreadyLaunch" style="display:none">
+	<div id="ImageQrCode" style="display:none" alt=""></div>
+  	<p id="ContenuQrCode" class="card-text text-center"></p>
+  </div>  
+    
+</div>
