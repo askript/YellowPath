@@ -243,10 +243,10 @@ $(document).ready(function()
 								            obj1[i].style.cssText="width:"+z1+"%;";
 								        } 
 								        //progress bar adapted to number of select value 
-								        /*let bar1 = document.querySelector('.progress_inner__bar');
+								        let bar1 = document.querySelector('.progress_inner__bar');
 								        let h1 = 50/number2;
 								
-								        bar1.style.cssText="left:"+h1+"%;";*/
+								        bar1.style.cssText="left:"+h1+"%;";
 								
 								        //background progress bar adapted to number of select value 
 								        let barset1 = document.querySelector('.progress_inner__bar--set');
