@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Visual_Compo/assets/js/Controller_ComposantPipe&apos; to &apos;Controller_ComposantPipe.js&apos;" description="Rename resource &apos;Controller_ComposantPipe&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="assets/js/Controller_ComposantPipe" name="Controller_ComposantPipe.js" stamp="1655217904675" updateReferences="true"/>
+</session>

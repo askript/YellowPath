@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="name_targ"/>
+		<item key="selection" value=".progress"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<item key="wrap" value="true"/>
 		<item key="incremental" value="false"/>
 		<list key="findhistory">
+			<item value=".progress"/>
+			<item value="text color"/>
+			<item value="white"/>
 			<item value="name_targ"/>
 			<item value="pipeYBtarget"/>
 			<item value="tableNameClass"/>
