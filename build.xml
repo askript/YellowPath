@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+
+
+<project name="Plugin_API" default="CreateJar" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant">
+
+
+
+<property name="extension.name" value="VisualCompo-1.0.0" />
+<property name="src.dir" value="src" />
+<property name="build.dir" value="build" />
+<property name="classes.dir" value="${build.dir}/classes" />
+<property name="lib.dir" value="lib" />
+<property name="assets.dir" value="assets" />
+<property name="resources.dir" value="resources" />
+
+<target name="init">
+<mkdir dir="${build.dir}/classes" />
+</target>
+
+<target name="build" depends="">
+<echo>Compilation des fichiers source</echo>
+<antversion property="antversion"/>
+<echo>Version ant : ${antversion}</echo>
+<javac
+srcdir="${src.dir}"
+destdir="${classes.dir}"
+classpathref="classpath"
+excludes= "**test**,test*.java"
+debug="on"
+encoding="utf-8"
+includeantruntime="false"/>
+</target>
+
+
+
+<path id="classpath">
+<pathelement location="${classes.dir}" />
+<fileset dir="${lib.dir}">
+<include name="**/*.jar" />
+</fileset>
+</path>
+
+<target name="clean" description="Removes all the generated files or directories">
+<delete dir="${build.dir}" />
+</target>
+
+<target name="CreateJar" depends="clean,init,build">
+<!-- Copie des d�pendances jar(s) -->
+<copy todir="${classes.dir}/libs" overwrite="false">
+<fileset dir="${lib.dir}" >
+<exclude name="VisualCompo*.jar"/>
+</fileset>
+</copy>
+<!-- Copie des assets -->
+<copy todir="${classes.dir}/assets" overwrite="false">
+<fileset dir="${assets.dir}" />
+</copy>
+<copy todir="${classes.dir}/resources" overwrite="false">
+<fileset dir="${resources.dir}"/>
+</copy>
+<jar destfile="${build.dir}/${extension.name}.jar"
+basedir="${classes.dir}"
+includes="**"/>
+<!--<exec executable="cmd" dir="c:/YB/Plugins/">
+<arg value="/c UpdatePlugin.bat"/>
+</exec>-->
+</target>
+
+<property name="ivy.install.version" value="2.4.0" />
+<property name="ivy.jar.dir" value="lib" />
+<property name="ivy.jar.file" value="lib/ivy-${ivy.install.version}.jar" />
+<target name="install-ivy" description="--> install ivy">
+<!-- try to load ivy here from local ivy dir, in case the user has not already dropped
+it into ant's lib dir (note that the latter copy will always take precedence).
+We will not fail as long as local lib dir exists (it may be empty) and
+ivy is in at least one of ant's lib dir or the local lib dir. -->
+<path id="ivy.lib.path">
+<fileset dir="${ivy.jar.dir}" includes="*.jar"/>
+</path>
+<taskdef resource="org/apache/ivy/ant/antlib.xml"
+uri="antlib:org.apache.ivy.ant" classpathref="ivy.lib.path"/>
+</target>
+
+
+
+<target name="resolve" depends="install-ivy" description="retrieve dependencies with ivy">
+<ivy:retrieve type="jar" pattern="${lib.dir}/[artifact]-[revision].[ext]"/>
+<ivy:retrieve type="source" pattern="/src-lib/[artifact]-[revision].[ext]"/>
+<ivy:report />
+<copydir src="locallib" dest="${lib.dir}"></copydir>
+</target>
+
+</project>
