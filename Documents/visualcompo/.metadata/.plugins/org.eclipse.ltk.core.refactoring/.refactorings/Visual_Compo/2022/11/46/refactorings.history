@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;Visual_Compo/assets/js/content.json&apos; to &apos;data.json&apos;" description="Rename resource &apos;content.json&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="assets/js/content.json" name="data.json" stamp="1668640832032" updateReferences="true"/>&#x0A;<refactoring comment="Move &apos;image.svg&apos; to &apos;css&apos;" description="Move &apos;image.svg&apos; to &apos;css&apos;" destination="assets/css" element1="assets/images/image.svg" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1668726323466" updateReferences="true"/>
+</session>

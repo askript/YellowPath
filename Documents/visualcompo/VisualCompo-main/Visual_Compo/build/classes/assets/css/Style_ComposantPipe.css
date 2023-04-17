@@ -3,6 +3,9 @@
   box-sizing: border-box;
 }
 
+
+
+
 body .box_string, body .progress_inner, body .progress_inner__step:before {
   position: absolute;
   left: 0;
@@ -14,7 +17,7 @@ body .box_string, body .progress_inner, body .progress_inner__step:before {
 
 body .progress_inner__bar--set{
   height: 6px;
-  background: repeating-linear-gradient(45deg, #ffc801, #fcfd95 4px, #ffc801 4px, #ffc801 10px);
+  background: repeating-linear-gradient(45deg, var(--couleur-dominante), #e8fafa 4px, var(--couleur-dominante) 4px,var(--couleur-dominante) 10px);
   transition: width 800ms cubic-bezier(0.915, 0.015, 0.3, 1.005);
   border-radius: 6px;
   width: 0;
@@ -24,25 +27,38 @@ body .progress_inner__bar--set{
 
 .cssStep1 , .cssStep2 , .cssStep3 , .cssStep4, .cssStep5, .cssStep6, .cssStep7, .cssStep8, .cssStep9, .cssStep10 {
   height: 6px;
-  background: repeating-linear-gradient(45deg, #ffc801, #fcfd95 4px, #ffc801 4px, #ffc801 10px);
+  background: repeating-linear-gradient(45deg, var(--couleur-dominante), #e8fafa 4px,var(--couleur-dominante) 4px,var(--couleur-dominante) 10px);
   transition: width 800ms cubic-bezier(0.915, 0.015, 0.3, 1.005);
   border-radius: 6px;
+   border: 1px solid #797979;
   position: relative;
   z-index: -1;
+  background-position: -100% 0;
+  background-size: 3000px 2000px; 
+  animation: move 5s linear infinite;
   
+}
+
+/* moving effect */
+
+@keyframes move {
+  
+  0%   { background-position: 0 1900px; }
+  100% { background-position: 0 2000px; }
+
 }
 
 
 
-/*colors text Labels selection over */
+/* colors text Labels selection over */
 
 body .progress_inner__step:before {
   width: 30px;
   height: 30px;
   color: black;
-  background: #a6a6a6;
+  background: #c9c7c7;
   line-height: 30px;
-  border: 1px solid yellow;
+  /*border:1px solid  var(--couleur-entete-panneau-commande-gauche);*/
   font-size: 12px;
   top: 3px;
   border-radius: 100%;
@@ -64,6 +80,7 @@ body .progress_inner__step {
 
 
 body .progress_inner__step label {
+	
   padding-top: 50px;
   top: -20px;
   display: block;
@@ -74,120 +91,145 @@ body .progress_inner__step label {
 
 /*colors text Labels selection hover */
 body .progress_inner__step:hover {
-  color: #fbc500;
+  color: var(--couleur-dominante);
 }
 
 
 /*colors  Labels selection hover */
 body .progress_inner__step:hover:before {
-  color: #fbc500;
+  color: var(--couleur-dominante);
   background: white;
 }
+
+
+
+
 
 /* Text color*/
 body {
   font-family: "Nunito", sans-serif;
-  background: rgb(240, 234, 234);
-  color: rgba(65, 61, 61, 0.877);
+  background:#fff;
+  color: rgba(65, 61, 61, 0.77);
   text-align: center;
   font-weight: 900;
 }
 
 /*Path length */
 body .progress_inner {
-  height: 200px;
-  width: 1400px;
+  height: 100px;
+  max-width: 1800px;
+  margin: 0 auto;
 }
 
+/*.arrow-left {
+    width: 20px;
+    height: 32px;
+    background-color: #fbc5002b;
+    clip-path: polygon(100% 100%, 100% 0, 0 50%);
+   
+	position: absolute;
+	top: 33px;
+	left: 7px;
+	animation-duration: 0.7s;
+
+    animation-name: off;
+}
+
+.arrow-left:hover {
+    background-color: #fbc500;
+    
+}*/
+
+.state1 {
+	rotate: -90deg;
+	background-color: var(--couleur-dominante);
+    animation-duration: 0.7s;
+
+    animation-name: on;
+
+   
+}
+
+@keyframes on{
+  from {
+    rotate: 0deg;
+  }
+
+  to {
+    rotate: -90deg;
+  }
+}
+
+@keyframes off{
+  from {
+    rotate: -90deg;
+  }
+
+  to {
+    rotate: 0deg;
+  }
+}
+
+.state2 {
+	
+	 padding-right: 160px;
+}
+
+.state3 {
+	
+	 left: 38%;
+}
+
+
+
+
+
+
+
+body .progress_inner_size{
+	
+  /*background-color:blue !important;*/
+  width: 1280px;
+}
+
+iframe {
+	Height : 550px !important;
+}
 /* color labels before select value */
 
 
 .progress_inner__step2:nth-of-type(1):before {
-  background-color:  #fbc500; 
+  background-color:  var(--couleur-dominante);
 }
  .progress_inner__step2:nth-of-type(2):before {
-  background-color:  #fbc500; 
+  background-color: var(--couleur-dominante);
 }
  .progress_inner__step2:nth-of-type(3):before {
-  background-color:  #fbc500; 
+  background-color: var(--couleur-dominante); 
 }
 .progress_inner__step2:nth-of-type(4):before {
-  background-color:  #fbc500; 
+  background-color: var(--couleur-dominante); 
 }
  .progress_inner__step2:nth-of-type(5):before {
-  background-color:  #fbc500; 
+  background-color: var(--couleur-dominante); 
 }
 .progress_inner__step2:nth-of-type(6):before {
-  background-color:  #fbc500; 
+  background-color: var(--couleur-dominante); 
 } 
 .progress_inner__step2:nth-of-type(7):before {
-  background-color:  #fbc500; 
+  background-color: var(--couleur-dominante); 
 }
 .progress_inner__step2:nth-of-type(8):before {
-  background-color:  #fbc500; 
+  background-color: var(--couleur-dominante); 
 }
  .progress_inner__step2:nth-of-type(9):before {
-  background-color:  #fbc500; 
+  background-color: var(--couleur-dominante); 
 }
 .progress_inner__step2:nth-of-type(10):before {
-  background-color:  #fbc500; 
+  background-color: var(--couleur-dominante); 
 }
 
 
-/* greeen color labels of select value */
-
-.progress_inner__step3:nth-of-type(2):before {
-  background: no-repeat /* url("../images/image.svg"),*/white; 
-  background-position: 46% 31%;
-  background-size: 350%;
-}
- .progress_inner__step3:nth-of-type(3):before {
-  background: no-repeat /* url("../images/image.svg"),*/white; 
-  background-position: 46% 31%;
-  background-size: 350%;
-}
- .progress_inner__step3:nth-of-type(4):before {
-  background: no-repeat /* url("../images/image.svg"),*/white; 
-  background-position: 46% 31%;
-  background-size: 350%;
-}
-.progress_inner__step3:nth-of-type(5):before {
- 
-  background: no-repeat /* url("../images/image.svg"),*/white; 
-  background-position: 46% 31%;
-  background-size: 350%;
-
-}
- .progress_inner__step3:nth-of-type(6):before {
-  background: no-repeat /* url("../images/image.svg"),*/white; 
-  background-position: 46% 31%;
-  background-size: 350%;
-}
-.progress_inner__step3:nth-of-type(7):before {
-  background: no-repeat /* url("../images/image.svg"),*/white; 
-  background-position: 46% 31%;
-  background-size: 350%;
-}
-.progress_inner__step3:nth-of-type(8):before {
-  background: no-repeat /* url("../images/image.svg"),*/white; 
-  background-position: 46% 31%;
-  background-size: 350%;
-}
-.progress_inner__step3:nth-of-type(9):before {
-  background: no-repeat /* url("../images/image.svg"),*/white; 
-  background-position: 46% 31%;
-  background-size: 350%;
-}
- .progress_inner__step3:nth-of-type(10):before {
-  background: no-repeat /* url("../images/image.svg"),*/white; 
-  background-position: 46% 31%;
-  background-size: 350%;
-}
-.progress_inner__step3:nth-of-type(11):before {
-  background: no-repeat /* url("../images/image.svg"),*/white; 
-  background-position: 46% 31%;
-  background-size: 350%;
-}
 
 
 
@@ -236,17 +278,52 @@ body .progress_inner__bar--set {
 
 .tab {
   opacity: 1;
-  position: absolute;
-  top: 40px;
-  text-align: center;
-  margin-top: 80px;
-  margin-left: 10px;
-  box-shadow: 0px 2px 1px #80b7d5;
-  padding: 40px;
+  margin: 55px 20px 0px 20px;
+  box-shadow: 0px 2px 1px grey;
+  padding: 20px;
   background-color: white;
   border-radius: 10px;
   transition: all 0.2s;
+  font-size: 1.5rem !Important;
+  border:1px solid #e9ecef;
+  position: relative;
+  min-height: 100px;
 }
+
+
+
+.tab p {
+	margin-top: 40px;
+	text-align: left;
+}
+
+.title{
+	
+	line-height: 45px;
+	position: absolute;
+	left: 45%;
+	
+}
+
+
+#image-corpo {
+	
+	background-color: #247c91;
+	width: 30px;
+	position: relative;
+	top: -88px;
+	border-radius: 50%;
+	transition: transform 5s;
+	
+}
+
+#image-corpo:hover {
+
+	opacity:0;
+	transition-duration: 2s;
+	
+}
+
 
 /* contenu infos  */
 body .progress_inner__tabs .tab p {
@@ -271,7 +348,7 @@ body .progress_inner input[type=radio] {
 /* CLICK STEP 3 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/ 
  
 .cssStep13 {
-  width: 1% ;
+  width: 0% ;
 }
 
 .cssStep23 {
@@ -288,7 +365,7 @@ body .progress_inner input[type=radio] {
 }
 
 .cssStep24{
-  width: 24%;
+  width: 25%;
 }
 
 .cssStep34{
@@ -372,7 +449,7 @@ body .progress_inner input[type=radio] {
 }
 
 .cssStep77{
-  width: 83% ;
+  width: 86% ;
 }
 
 /* CLICK STEP 8 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/ 
@@ -385,7 +462,7 @@ body .progress_inner input[type=radio] {
 }
 
 .cssStep38{
-  width: 26% ;
+  width: 25% ;
 }
 
 .cssStep48{
@@ -485,3 +562,48 @@ body .progress_inner input[type=radio] {
 .cssStep1010{
   width: 90% ;
 }
+
+
+.transition {
+	opacity:0;
+}
+
+
+.teleportation {
+	
+    /* Effectue 3 rotations sur l'axe y */
+    animation:  spin 0.4s linear !important;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes spin {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(1440deg);
+        opacity: 0;
+    }
+}
+
+
+.teleportation2 {
+	
+    /* Effectue 3 rotations sur l'axe y */
+    animation:  spin2 0.5s linear;
+}
+
+
+@keyframes spin2 {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(1440deg);
+    }
+}
+
+
+
+

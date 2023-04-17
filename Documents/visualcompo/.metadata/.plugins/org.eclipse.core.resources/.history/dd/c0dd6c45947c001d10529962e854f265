@@ -1,0 +1,477 @@
+/* **************************************************************************** */
+* {
+  box-sizing: border-box;
+}
+
+
+
+
+body .box_string, body .progress_inner, body .progress_inner__step:before {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 25%;
+  transform: translateY(-50%);
+  margin: auto;
+}
+
+body .progress_inner__bar--set{
+  height: 6px;
+  background: repeating-linear-gradient(45deg, #ffc801, #fcfd95 4px, #ffc801 4px, #ffc801 10px);
+  transition: width 800ms cubic-bezier(0.915, 0.015, 0.3, 1.005);
+  border-radius: 6px;
+  width: 0;
+  position: relative;
+  z-index: -1;
+}
+
+.cssStep1 , .cssStep2 , .cssStep3 , .cssStep4, .cssStep5, .cssStep6, .cssStep7, .cssStep8, .cssStep9, .cssStep10 {
+  height: 6px;
+  background: repeating-linear-gradient(45deg, #ffc801, #fcfd95 4px, #ffc801 4px, #ffc801 10px);
+  transition: width 800ms cubic-bezier(0.915, 0.015, 0.3, 1.005);
+  border-radius: 6px;
+  position: relative;
+  z-index: -1;
+  
+}
+
+
+
+/*colors text Labels selection over */
+
+body .progress_inner__step:before {
+  width: 30px;
+  height: 30px;
+  color: black;
+  background: #c9c7c7;
+  line-height: 30px;
+  border: 1px solid #ffc801;
+  font-size: 12px;
+  top: 3px;
+  border-radius: 100%;
+  transition: all 0.4s;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+body .progress_inner__step {
+
+
+  font-size: 14px;
+  padding: 0 10px;
+  transition: all 0.4s;
+  float: left;
+  text-align: center;
+  position: relative;
+}
+
+
+body .progress_inner__step label {
+  padding-top: 50px;
+  top: -20px;
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+
+
+/*colors text Labels selection hover */
+body .progress_inner__step:hover {
+  color: #fbc500;
+}
+
+
+/*colors  Labels selection hover */
+body .progress_inner__step:hover:before {
+  color: #fbc500;
+  background: white;
+}
+
+
+
+
+
+/* Text color*/
+body {
+  font-family: "Nunito", sans-serif;
+  background:#fff;
+  color: rgba(65, 61, 61, 0.77);
+  text-align: center;
+  font-weight: 900;
+}
+
+/*Path length */
+body .progress_inner {
+  height: 100px;
+  width: 1310px;
+}
+
+body .progress_inner_size{
+	
+  background-color:blue !important;
+  width: 1280px;
+}
+
+iframe {
+	Height : 550px !important;
+}
+/* color labels before select value */
+
+
+.progress_inner__step2:nth-of-type(1):before {
+  background-color:  #fbc500; 
+}
+ .progress_inner__step2:nth-of-type(2):before {
+  background-color:  #fbc500; 
+}
+ .progress_inner__step2:nth-of-type(3):before {
+  background-color:  #fbc500; 
+}
+.progress_inner__step2:nth-of-type(4):before {
+  background-color:  #fbc500; 
+}
+ .progress_inner__step2:nth-of-type(5):before {
+  background-color:  #fbc500; 
+}
+.progress_inner__step2:nth-of-type(6):before {
+  background-color:  #fbc500; 
+} 
+.progress_inner__step2:nth-of-type(7):before {
+  background-color:  #fbc500; 
+}
+.progress_inner__step2:nth-of-type(8):before {
+  background-color:  #fbc500; 
+}
+ .progress_inner__step2:nth-of-type(9):before {
+  background-color:  #fbc500; 
+}
+.progress_inner__step2:nth-of-type(10):before {
+  background-color:  #fbc500; 
+}
+
+
+
+
+
+
+/* generate  step  numbers  */
+
+body .progress_inner__step:nth-of-type(2):before {
+  content: "1";
+}
+body .progress_inner__step:nth-of-type(3):before {
+  content: "2";
+}
+body .progress_inner__step:nth-of-type(4):before {
+  content: "3";
+}
+body .progress_inner__step:nth-of-type(5):before {
+  content: "4";
+}
+body .progress_inner__step:nth-of-type(6):before {
+  content: "5";
+}
+body .progress_inner__step:nth-of-type(7):before {
+  content: "6";
+}
+body .progress_inner__step:nth-of-type(8):before {
+  content: "7";
+}
+body .progress_inner__step:nth-of-type(9):before {
+  content: "8";
+}
+body .progress_inner__step:nth-of-type(10):before {
+  content: "9";
+}
+body .progress_inner__step:nth-of-type(11):before {
+  content: "10";
+}
+
+/*Background page */
+body .progress_inner__bar--set {
+  
+  top: -6px;
+  background: #98999b;
+  position: relative;
+  z-index: -2;
+}
+
+.tab {
+  opacity: 1;
+  text-align: center;
+  margin: 55px 20px 0px 20px;
+  box-shadow: 0px 2px 1px grey;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  transition: all 0.2s;
+  font-size: 1.5rem !Important;
+  border:1px solid #e9ecef;
+  text-align: start;
+}
+
+.tab h1 {
+	position:absolute;
+	left:50%;
+	
+}
+
+.tab p {
+	text-align: left;
+	margin-top: 40px;
+}
+
+#image-corpo {
+	background-color: #247c91;
+	width: 30px;
+	position: relative;
+	top: -86px;
+	border-radius: 50%;
+}
+
+#image-corpo:hover {
+	background-color: #247c91;
+	width: 30px;
+	position: relative;
+	top: -86px;
+	border-radius: 50%;
+}
+
+
+/* contenu infos  */
+body .progress_inner__tabs .tab p {
+  font-weight: 400;
+  opacity: 0.8;
+}
+/* hidding input  */
+body .progress_inner input[type=radio] {
+  display: none;
+}
+
+/* CLICK STEP 2 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/ 
+
+.cssStep12 {
+  width: 0% ;
+}
+
+.cssStep22 {
+  width: 50% ;
+}
+
+/* CLICK STEP 3 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/ 
+ 
+.cssStep13 {
+  width: 1% ;
+}
+
+.cssStep23 {
+  width: 33% ;
+}
+
+.cssStep33 {
+  width: 66% ;
+}
+
+/* CLICK STEP 4 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/ 
+.cssStep14 {
+  width: 0%;
+}
+
+.cssStep24{
+  width: 24%;
+}
+
+.cssStep34{
+  width: 50% ;
+}
+
+.cssStep44{
+  width: 75% ;
+}
+
+/* CLICK STEP 5 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/ 
+.cssStep15 {
+  width: 0% ;
+}
+
+.cssStep25 {
+  width: 20% ;
+}
+
+.cssStep35 {
+  width: 40% ;
+}
+
+.cssStep45 {
+  width: 60% ;
+}
+
+.cssStep55 {
+  width: 80% ;
+}
+
+/* CLICK STEP 6 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/ 
+.cssStep16 {
+  width: 0%;
+}
+
+.cssStep26{
+  width: 17%;
+}
+
+.cssStep36{
+  width: 33% ;
+}
+
+.cssStep46{
+  width: 50% ;
+}
+
+.cssStep56{
+  width: 67% ;
+}
+
+.cssStep66{
+  width: 83% ;
+}
+
+/* CLICK STEP 7 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/ 
+
+.cssStep17 {
+  width: 0%;
+}
+
+.cssStep27{
+  width: 14%;
+}
+
+.cssStep37{
+  width: 29% ;
+}
+
+.cssStep47{
+  width: 43% ;
+}
+
+.cssStep57{
+  width: 57% ;
+}
+
+.cssStep67{
+  width: 72% ;
+}
+
+.cssStep77{
+  width: 83% ;
+}
+
+/* CLICK STEP 8 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/ 
+.cssStep18 {
+  width: 0%;
+}
+
+.cssStep28{
+  width: 12%;
+}
+
+.cssStep38{
+  width: 26% ;
+}
+
+.cssStep48{
+  width: 38% ;
+}
+
+.cssStep58{
+  width: 50% ;
+}
+
+.cssStep68{
+  width: 63% ;
+}
+
+.cssStep78{
+  width: 75% ;
+}
+
+.cssStep88{
+  width: 87% ;
+}
+
+/* CLICK STEP 9 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/ 
+.cssStep19 {
+  width: 0%;
+}
+
+.cssStep29{
+  width: 10%;
+}
+
+.cssStep39{
+  width: 22% ;
+}
+
+.cssStep49{
+  width: 33% ;
+}
+
+.cssStep59{
+  width: 44% ;
+}
+
+.cssStep69{
+  width: 55% ;
+}
+
+.cssStep79{
+  width: 66% ;
+}
+
+.cssStep89{
+  width: 77% ;
+}
+
+.cssStep99{
+  width: 88% ;
+}
+
+/* CLICK STEP 10 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/ 
+.cssStep110 {
+  width: 0%;
+}
+
+.cssStep210{
+  width: 10%;
+}
+
+.cssStep310{
+  width: 20% ;
+}
+
+.cssStep410{
+  width: 30% ;
+}
+
+.cssStep510{
+  width: 40% ;
+}
+
+.cssStep610{
+  width: 50% ;
+}
+
+.cssStep710{
+  width: 60% ;
+}
+
+.cssStep810{
+  width: 70% ;
+}
+
+.cssStep910{
+  width: 80% ;
+}
+
+.cssStep1010{
+  width: 90% ;
+}

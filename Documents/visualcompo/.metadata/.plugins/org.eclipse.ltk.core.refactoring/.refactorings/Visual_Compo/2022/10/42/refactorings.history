@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;ServletComposantPipe.java&apos; to &apos;Visual_Compo/src/dimo.visual_compo.servlets&apos;&#x0D;&#x0A;- Original project: &apos;Visual_Compo&apos;&#x0D;&#x0A;- Destination element: &apos;Visual_Compo/src/dimo.visual_compo.servlets&apos;&#x0D;&#x0A;- Original element: &apos;dimo.visual_compo.servlets.ServletComposantPipe.java&apos;" description="Copy compilation unit" destination="/src&lt;dimo.visual_compo.servlets" element1="/src&lt;dimo.visual_compo.servlets{ServletComposantPipe.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1666253678419" units="1" version="1.0"/>
+</session>

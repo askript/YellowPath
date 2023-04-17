@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Visual_Compo/assets/img/corpo_logo.png&apos; to &apos;corpo2_logo.png&apos;" description="Rename resource &apos;corpo_logo.png&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="assets/img/corpo_logo.png" name="corpo2_logo.png" stamp="1669976084364" updateReferences="true"/>
+</session>

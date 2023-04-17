@@ -96,7 +96,6 @@ public abstract class BasePlugin extends Function
 		{
 			UIPanel pnlYellwTest = new UIPanel("Configuration Composant : Pipe");
 			pnlYellwTest.add(new UIParamDefault(VisualYB.Fields.name_target));
-			pnlYellwTest.add(new UIParamDefault(VisualYB.Values.name_keywordsTarget));
 
 			uiRoot.add(pnlYellwTest);
 		}
@@ -111,7 +110,7 @@ public abstract class BasePlugin extends Function
 		if (this.getClass() == Test.class) 
 		{
 			parameters.add(VisualYB.Fields.param_target());
-			parameters.add(VisualYB.Values.param_keywordsTarget());
+
 		}
 
 		return parameters;

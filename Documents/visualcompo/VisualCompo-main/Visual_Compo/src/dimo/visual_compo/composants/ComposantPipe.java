@@ -36,6 +36,12 @@ public class ComposantPipe extends Component
 
 	public String idElement;
 	public Record record;
+	
+	
+//	public ComposantPipe () {
+//		
+//		setSizeAuto(true);
+//	}
 
     /*
     * Cette fonction est la première appelé lors de l'éxécution d'une classe Fonction dans YellowBox.
@@ -46,8 +52,24 @@ public class ComposantPipe extends Component
 	{
 		setProperties();
 
-		return getRessourceAsString("/html/BaseTemplate_ComposantPipe.html");
+		String html = getRessourceAsString("/html/BaseTemplate_ComposantPipe.html");
+		
+		return html;
 	}
+	
+	
+
+
+	@Override
+	public List<String> getAssets() {
+		
+	List<String> listImg = new ArrayList<>();
+	listImg.add("image/image.svg");
+	return listImg;
+	
+	}
+
+
 
 	public void setProperties() 
 	{
@@ -64,36 +86,15 @@ public class ComposantPipe extends Component
 
 		this.yb_visual = new VisualYB(this.getParamValues(), tableService);
 		
-		
-		
-		List<Keyword> liste = getYellowboxEntryPoint().getServices().getKeywordService().getKeywordListByKeywordListId(yb_visual.values.keywordsTarget);
-		liste.get(0).getPosition();
-		liste.get(0).getName();
-		liste.get(0).getKeywordId();
-		
-		Value valueCycle = this.record.getValues()
-								.stream()
-								.filter(x -> x.getField().getId()
-										.equals(yb_visual.fields.target))
-								.findFirst().orElse(null);
-		
-		String cycleValeur = "";
-		
-//		for(Value val : record.getValues())
-//		{
-//			if(val.getField().equals(yb_visual.fields.target))
-//			{
-//				cycleValeur = val.getValue();
-//			}
-//		} 
 
-		getYellowboxEntryPoint().getLog().putInfo(cycleValeur);
 		
+	
 		
-		cycleValeur = valueCycle.getValue();
 
-		String unPetit ="";
 	}
+	
+	
+
 
 
 	@Override
@@ -142,8 +143,64 @@ public class ComposantPipe extends Component
 
 		UIPanel pnlYellwTest = new UIPanel("Configuration Composant : Pipe");
 		pnlYellwTest.add(new UIParamDefault(VisualYB.Fields.name_target));
-		pnlYellwTest.add(new UIParamDefault(VisualYB.Values.name_keywordsTarget));
-
+		pnlYellwTest.add(new UIParamDefault(VisualYB.Values.name_activateKeywordsComments));
+		pnlYellwTest.add(new UIParamDefault(VisualYB.Values.name_activateKeywordsModifications));
+		pnlYellwTest.add(new UIParamDefault(VisualYB.Values.name_sizeComment));
+		
+		pnlYellwTest.add(new UIParamDefault(VisualYB.Fields.name_targetEnum));
+		
+		List<String>valeursRupture = new ArrayList<>();
+		
+        try {
+            valeursRupture = this.getParamValues().getStringValues(VisualYB.Fields.name_targetEnum);
+        } catch (Exception e) {
+            valeursRupture = new ArrayList<>();
+        }
+        if(valeursRupture == null) {
+            valeursRupture = new ArrayList<>();
+        }
+        
+        
+        if ( 1 <= valeursRupture.size() ) {
+		pnlYellwTest.add(new UIParamDefault(VisualYB.Values.name_keywordsTitle01));
+		pnlYellwTest.add(new UIParamDefault(VisualYB.Values.name_keywordsComments01));
+        }
+        if ( 2 <= valeursRupture.size() ) {
+		pnlYellwTest.add(new UIParamDefault(VisualYB.Values.name_keywordsTitle02));
+		pnlYellwTest.add(new UIParamDefault(VisualYB.Values.name_keywordsComments02));
+        }
+        if ( 3 <= valeursRupture.size() ) {
+		pnlYellwTest.add(new UIParamDefault(VisualYB.Values.name_keywordsTitle03));
+		pnlYellwTest.add(new UIParamDefault(VisualYB.Values.name_keywordsComments03));
+        }
+		if ( 4 <= valeursRupture.size() ) {
+		pnlYellwTest.add(new UIParamDefault(VisualYB.Values.name_keywordsTitle04));
+		pnlYellwTest.add(new UIParamDefault(VisualYB.Values.name_keywordsComments04));
+		}
+		if ( 5 <= valeursRupture.size() ) {
+		pnlYellwTest.add(new UIParamDefault(VisualYB.Values.name_keywordsTitle05));
+		pnlYellwTest.add(new UIParamDefault(VisualYB.Values.name_keywordsComments05));
+		}
+		if ( 6 <= valeursRupture.size() ) {
+		pnlYellwTest.add(new UIParamDefault(VisualYB.Values.name_keywordsTitle06));
+		pnlYellwTest.add(new UIParamDefault(VisualYB.Values.name_keywordsComments06));
+		}
+		if ( 7 <= valeursRupture.size() ) {
+		pnlYellwTest.add(new UIParamDefault(VisualYB.Values.name_keywordsTitle07));
+		pnlYellwTest.add(new UIParamDefault(VisualYB.Values.name_keywordsComments07));
+		}
+		if ( 8 <= valeursRupture.size() ) {
+		pnlYellwTest.add(new UIParamDefault(VisualYB.Values.name_keywordsTitle08));
+		pnlYellwTest.add(new UIParamDefault(VisualYB.Values.name_keywordsComments08));
+		}
+		if ( 9 <= valeursRupture.size() ) {
+		pnlYellwTest.add(new UIParamDefault(VisualYB.Values.name_keywordsTitle09));
+		pnlYellwTest.add(new UIParamDefault(VisualYB.Values.name_keywordsComments09));
+		}
+		if ( 10 <= valeursRupture.size() ) {
+		pnlYellwTest.add(new UIParamDefault(VisualYB.Values.name_keywordsTitle10));
+		pnlYellwTest.add(new UIParamDefault(VisualYB.Values.name_keywordsComments10));
+		}
 		uiRoot.add(pnlYellwTest);
 
 		return uiRoot;
@@ -154,7 +211,36 @@ public class ComposantPipe extends Component
 		Params parameters = new Params();
 
 		parameters.add(VisualYB.Fields.param_target());
-		parameters.add(VisualYB.Values.param_keywordsTarget());
+		parameters.add(VisualYB.Fields.param_targetEnum());
+		
+		
+		
+		parameters.add(VisualYB.Values.param_activateKeywordsComments());
+		parameters.add(VisualYB.Values.param_activateKeywordsModifications());
+		parameters.add(VisualYB.Values.param_sizeComment());
+		
+		parameters.add(VisualYB.Values.param_keywordsTitle01());
+		parameters.add(VisualYB.Values.param_keywordsTitle02());
+		parameters.add(VisualYB.Values.param_keywordsTitle03());
+		parameters.add(VisualYB.Values.param_keywordsTitle04());
+		parameters.add(VisualYB.Values.param_keywordsTitle05());
+		parameters.add(VisualYB.Values.param_keywordsTitle06());
+		parameters.add(VisualYB.Values.param_keywordsTitle07());
+		parameters.add(VisualYB.Values.param_keywordsTitle08());
+		parameters.add(VisualYB.Values.param_keywordsTitle09());
+		parameters.add(VisualYB.Values.param_keywordsTitle10());
+		
+		parameters.add(VisualYB.Values.param_keywordsComments01());
+		parameters.add(VisualYB.Values.param_keywordsComments02());
+		parameters.add(VisualYB.Values.param_keywordsComments03());
+		parameters.add(VisualYB.Values.param_keywordsComments04());
+		parameters.add(VisualYB.Values.param_keywordsComments05());
+		parameters.add(VisualYB.Values.param_keywordsComments06());
+		parameters.add(VisualYB.Values.param_keywordsComments07());
+		parameters.add(VisualYB.Values.param_keywordsComments08());
+		parameters.add(VisualYB.Values.param_keywordsComments09());
+		parameters.add(VisualYB.Values.param_keywordsComments10());
+		
 
 		return parameters;
 	}
@@ -195,12 +281,6 @@ public class ComposantPipe extends Component
 	List<Class<? extends Servlet>> listServlet = new ArrayList<Class<? extends Servlet>>();
 	listServlet.add(ServletComposantPipe.class);
 	return listServlet;
-	}
-	
-	@Override
-	public List<String> getAssets() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override

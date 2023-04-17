@@ -1,0 +1,132 @@
+package dimo.visual_compo.servlets;
+
+import java.text.Normalizer;
+import java.util.List;
+import java.util.Map;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import com.yellowbox.plugin.v3.ParamValues;
+import com.yellowbox.plugin.v3.Servlet;
+import com.yellowbox.ws.beans.Field;
+import com.yellowbox.ws.beans.Keyword;
+import com.yellowbox.ws.beans.Record;
+import com.yellowbox.ws.beans.Value;
+
+import dimo.visual_compo.RecordUtils;
+import dimo.visual_compo.composants.ComposantPipe;
+
+public class ServletComposantPipe extends Servlet 
+{
+	ComposantPipe componentPipe;
+
+	String idCurrentFiche;
+    Record currentRecord;
+	List<Value> valuesCurrentFiche;
+	
+	String idQrCodeImgHtmlField;
+	
+	@Override
+	public String call(ParamValues paramsServlet) 
+	{
+		String varReturn = "";
+
+		componentPipe = (ComposantPipe) getComponent();
+		
+		String typeOperation = paramsServlet.getStringValue("typeOperation");
+
+		if(typeOperation.equals("Pipe_checkData"))
+		{
+			Value valueCycle = componentPipe.record.getValues()
+					          .stream()
+					          .filter(x -> x.getField().getId()
+							  .equals(componentPipe.yb_visual.fields.target))
+					          .findFirst().orElse(null);
+			
+			if(valueCycle != null)
+			{
+				
+				StringBuilder bld = new StringBuilder();
+				String returnValue = "";
+				String infoTarget = valueCycle.getValue(); // 5 % Detection
+				if(infoTarget == null || infoTarget.isEmpty())
+				{
+					bld.append("Pipe_dataEmpty");
+				}
+				else
+				{
+					List<Keyword> keywordsTaget = componentPipe.getYellowboxEntryPoint()
+							.getServices().getKeywordService()
+					        .getKeywordListByKeywordListId(componentPipe.yb_visual.values.keywordsTarget);
+					
+					String jsonString = new JSONObject().put("Key1", "blabla").toString();
+					// ["JSON1" : "blabla"}
+					/* 
+					{
+					"Keywords1" : {
+						"Valeur type" : id , 
+						"Titre ": variable ,
+						"Commentaire" : variable2
+						},
+					"Keywords2" : {
+						"Titre ": variable ,
+						"Commentaire" : variable2
+						}
+					}
+					
+					*/
+					JSONObject JsonForJS = new JSONObject();
+					JSONArray JsonArray_Keywords = new JSONArray();
+
+
+					// keywordsTaget.sort(null);
+					for(Keyword key : keywordsTaget)
+					{
+						if(key.getName().equals(infoTarget))
+						{
+							bld.append("§§" + key.getName() + "|");		
+							JsonArray_Keywords.put("§§" + key.getName());
+						}
+						else
+						{
+							bld.append(key.getName() + "|");	// 1- Détection (5%)|...|§§...|...|		
+							JsonArray_Keywords.put(key.getName());
+						}
+
+					}
+					
+
+
+					returnValue = bld.toString(); 
+					
+					if(!returnValue.isEmpty() && !returnValue.equals("Pipe_dataEmpty"))
+					{
+						returnValue = returnValue.substring(0, returnValue.length()-1);
+					}
+				}
+				return returnValue;
+			}
+		}else if(typeOperation.equals("Pipe_Check_Height")) {
+			
+			String size = componentPipe.getIframHeightCalculationMethod();
+			
+			return size; 
+			
+		}
+		
+		
+		else
+		{
+			varReturn = "typeOperation ne repond a aucune condition";
+		}
+
+		return varReturn;
+	}
+	
+	@Override
+	public String getName() {
+		return "ServletComposantPipe";
+	}
+}
+

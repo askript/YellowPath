@@ -1,0 +1,153 @@
+package dimo.visual_compo.servlets;
+
+import java.text.Normalizer;
+import java.util.List;
+import java.util.Map;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import com.yellowbox.plugin.v3.ParamValues;
+import com.yellowbox.plugin.v3.Servlet;
+import com.yellowbox.ws.beans.Field;
+import com.yellowbox.ws.beans.Keyword;
+import com.yellowbox.ws.beans.Record;
+import com.yellowbox.ws.beans.Value;
+
+import dimo.visual_compo.RecordUtils;
+import dimo.visual_compo.composants.ComposantPipe;
+
+public class ServletComposantPipe extends Servlet
+{
+    ComposantPipe componentPipe;
+    
+    String idCurrentFiche;
+    Record currentRecord;
+    List<Value> valuesCurrentFiche;
+    
+    String idQrCodeImgHtmlField;
+    String infoTarget;
+    
+    @Override
+    public String call(ParamValues paramsServlet) 
+    {
+        String varReturn = "";
+        
+        componentPipe = (ComposantPipe) getComponent();
+        
+        String typeOperation = paramsServlet.getStringValue("typeOperation");
+        
+        if(typeOperation.equals("Pipe_checkData"))
+        {
+            Value valueCycle = componentPipe.record.getValues()
+                              .stream()
+                              .filter(x -> x.getField().getId()
+                              .equals(componentPipe.yb_visual.fields.target))
+                              .findFirst().orElse(null);
+            
+            if(valueCycle != null)
+            {
+            	
+                StringBuilder bld = new StringBuilder();
+                String returnValue = "";
+                infoTarget = valueCycle.getValue(); // 5 % Detection
+                if(infoTarget == null || infoTarget.isEmpty())
+                {
+                    bld.append("Pipe_dataEmpty");
+                }
+                else
+                {
+                    List<Keyword> keywordsTaget = componentPipe.getYellowboxEntryPoint()
+                            .getServices().getKeywordService()
+                            .getKeywordListByKeywordListId(componentPipe.yb_visual.values.keywordsTarget);
+                    JSONObject Json_Keywords = new JSONObject();
+                    JSONArray Json_ArrayKeywords = new JSONArray();
+                    for(Keyword key : keywordsTaget)
+                    {
+                    	
+                        JSONObject JsonPart_Keyword = null ;
+                        if(key.getPosition() == 0)
+                        {
+                            JsonPart_Keyword = getJson_Part(key.getName(),componentPipe.yb_visual.values.keywordComments01);
+                        }
+                        else if(key.getPosition() == 1)
+                        {
+                            JsonPart_Keyword = getJson_Part(key.getName(),componentPipe.yb_visual.values.keywordComments02);
+                        }
+                        else if(key.getPosition() == 2)
+                        {
+                            JsonPart_Keyword = getJson_Part(key.getName(),componentPipe.yb_visual.values.keywordComments03);
+                        }
+                        else if(key.getPosition() == 3)
+                        {
+                            JsonPart_Keyword = getJson_Part(key.getName(),componentPipe.yb_visual.values.keywordComments04);
+                        }
+                        else if(key.getPosition() == 4)
+                        {
+                            JsonPart_Keyword = getJson_Part(key.getName(),componentPipe.yb_visual.values.keywordComments05);
+                        }
+                        else if(key.getPosition() == 5)
+                        {
+                            JsonPart_Keyword = getJson_Part(key.getName(),componentPipe.yb_visual.values.keywordComments06);
+                        }
+                        else if(key.getPosition() == 6)
+                        {
+                            JsonPart_Keyword = getJson_Part(key.getName(),componentPipe.yb_visual.values.keywordComments07);
+                        }
+                        else if(key.getPosition() ==7)
+                        {
+                            JsonPart_Keyword = getJson_Part(key.getName(),componentPipe.yb_visual.values.keywordComments08);
+                        }
+                        else if(key.getPosition() == 8)
+                        {
+                            JsonPart_Keyword = getJson_Part(key.getName(),componentPipe.yb_visual.values.keywordComments09);
+                        }
+                        else if(key.getPosition() == 9)
+                        {
+                            JsonPart_Keyword = getJson_Part(key.getName(),componentPipe.yb_visual.values.keywordComments10);
+                        }
+                        Json_ArrayKeywords.put(JsonPart_Keyword);
+                    }
+                    Json_Keywords.put("keywords" , Json_ArrayKeywords);
+                    returnValue = Json_Keywords.toString(); 
+                    if(!returnValue.isEmpty() && !returnValue.equals("Pipe_dataEmpty"))
+                    {
+                        returnValue = returnValue.substring(0, returnValue.length()-1);
+                    }
+                }
+                return returnValue;
+            }
+        }
+        else if(typeOperation.equals("Pipe_Check_Height")) 
+        {
+            String size = componentPipe.getIframHeightCalculationMethod(); // check Size part
+            
+            return size; 
+        }
+        else
+        {
+            varReturn = "typeOperation ne repond a aucune condition";
+        }
+        return varReturn;
+    }
+    @Override
+    public String getName() {
+        return "ServletComposantPipe";
+    }
+    public JSONObject getJson_Part(String keyName, String keywordComments)
+    {
+        JSONObject JsonPart_Keyword = new JSONObject();
+        String[] titre_commentaire = keywordComments.split("|");
+        if(keyName.equals(infoTarget))
+        {
+            JsonPart_Keyword.put("Valeur", "§§" + keyName);
+        }
+        else
+        {
+            JsonPart_Keyword.put("Valeur", keyName);
+        }
+        JsonPart_Keyword.put( "Titre" , titre_commentaire[0]);
+        JsonPart_Keyword.put( "Commentaire" , titre_commentaire[1]);
+        return JsonPart_Keyword;        
+    }
+}

@@ -6,7 +6,7 @@
 
 
 
-<property name="extension.name" value="InitialAPI-1.0.0" />
+<property name="extension.name" value="VisualCompo-1.0.0" />
 <property name="src.dir" value="src" />
 <property name="build.dir" value="build" />
 <property name="classes.dir" value="${build.dir}/classes" />
@@ -49,7 +49,7 @@ includeantruntime="false"/>
 <!-- Copie des d�pendances jar(s) -->
 <copy todir="${classes.dir}/libs" overwrite="false">
 <fileset dir="${lib.dir}" >
-<exclude name="HubSpot*.jar"/>
+<exclude name="VisualCompo*.jar"/>
 </fileset>
 </copy>
 <!-- Copie des assets -->
